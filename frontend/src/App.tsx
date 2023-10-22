@@ -52,6 +52,7 @@ function App() {
       const response = await axios.get("https://testbackend-fygr.onrender.com/api/users");
       setCsvData(response.data.data);
     } catch (error) {
+      toast.error("Failed to load CSV data");
       console.error("Failed to load CSV data:", error);
     }
   };
@@ -63,6 +64,7 @@ function App() {
       );
       setCsvData(response.data.data);
     } catch (error) {
+      toast.error("Search Failed")
       console.error("Search failed:", error);
     }
   };
