@@ -30,7 +30,7 @@ function App() {
         const formData = new FormData();
         formData.append("file", selectedFile);
 
-        await axios.post("http://localhost:3000/api/files", formData);
+        await axios.post("https://testbackend-fygr.onrender.com/api/files", formData);
         loadCsvData();
         setSelectedFile(null); // Clear selected file after upload
         toast.success("File Upload Success!", {
@@ -49,7 +49,7 @@ function App() {
 
   const loadCsvData = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/users");
+      const response = await axios.get("https://testbackend-fygr.onrender.com/api/users");
       setCsvData(response.data.data);
     } catch (error) {
       console.error("Failed to load CSV data:", error);
@@ -59,7 +59,7 @@ function App() {
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/users?q=${searchTerm}`
+        `https://testbackend-fygr.onrender.com/api/users?q=${searchTerm}`
       );
       setCsvData(response.data.data);
     } catch (error) {
